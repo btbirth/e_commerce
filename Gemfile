@@ -35,6 +35,8 @@ gem 'devise'
 gem 'paperclip'
 gem 'cancancan'
 gem 'pry-rails'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'figaro'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
