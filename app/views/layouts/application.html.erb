@@ -38,9 +38,15 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-
-        <li><%= link_to "Products", products_url %></li>
-
+        <%if current_user.role == 'admin'%>
+          <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Categories", categories_url %></li>
+                <li><%= link_to "Products", products_url %></li>
+              </ul>
+          </li>
+        <%end%> 
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -56,6 +62,9 @@
                   <li><%= link_to brand, branding_path(brand: brand) %></li>
               <% end %>
           </ul>
+        </li>
+        <li>
+          <%= link_to "Cart", cart_view_order_path %>
         </li>
       </ul>
         <p class="navbar-text pull-right">

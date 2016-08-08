@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'cart/add_to_cart'
+
+  get 'cart/view_order'
+
+  get 'cart/checkout'
+
   resources :line_items
   resources :orders
   root 'store_front#all_items'
@@ -6,6 +12,7 @@ Rails.application.routes.draw do
   post 'add_to_cart' => 'cart#add_to_cart'
   get 'view_order' => 'cart#view_order'
   get 'checkout' => 'cart#checkout'
+  post 'order_complete' => 'cart#order_complete'
 
   resources :line_items
   resources :orders
